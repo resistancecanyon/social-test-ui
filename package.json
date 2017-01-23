@@ -1,0 +1,33 @@
+{
+  "name": "social-test-ui",
+  "version": "1.0.0",
+  "description": "Use this to test social logins Oauth and other connect features for facebook google twitter and many other social connect javascript apis. Easily test your apis using this simple page. Simply fill in config variables and test your apis",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resistancecanyon/social-test-ui.git"
+  },
+  "keywords": [
+    "facebook",
+    "login",
+    "google",
+    "oauth",
+    "test",
+    "twitter",
+    "social",
+    "connect"
+  ],
+  "author": "Jithu Thomas",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/resistancecanyon/social-test-ui/issues"
+  },
+  "homepage": "https://github.com/resistancecanyon/social-test-ui#readme",
+  "dependencies": {
+    "connect": "^3.5.0",
+    "serve-static": "^1.11.2"
+  }
+}
