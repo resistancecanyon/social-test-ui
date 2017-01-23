@@ -1,0 +1,27 @@
+{
+  "name": "Social Test UI",
+  "homepage": "https://github.com/resistancecanyon/social-test-ui",
+  "description": "Use this to test social logins Oauth and other connect features for facebook google twitter and many other social connect javascript apis. Easily test your apis using this simple page. Simply fill in config variables and test your apis",
+  "main": "index.html",
+  "keywords": [
+    "facebook",
+    "login",
+    "google",
+    "login",
+    "twitter",
+    "login",
+    "social",
+    "connect"
+  ],
+  "authors": [
+    "Jithu Thomas"
+  ],
+  "license": "GNU GPL 3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
