@@ -4,11 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Social UI Test Buttons</title>
+    <meta name="google-signin-client_id" content="698061389638-tv86mkmf341ihv57uh685a75ne2md9sl.apps.googleusercontent.com">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
     <div class="container-fluid">
+    	<div class="row">
+    		<h2>Social Login Buttons Test UI</h2>
+    	</div>
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-4">
@@ -17,22 +21,31 @@
                         <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
                     </div>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                	<div class="well">
+                		<h3>Google Login</h3>
+                		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+                	</div>
+
+                </div>
                 <div class="col-md-4"></div>
             </div>
         </div>
     </div>
     <div id="fb-root"></div>
+    <script src="config.js"></script>
     <script>
+
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=237062603170382";
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId="+config.facebookAppId;
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 
 </html>
