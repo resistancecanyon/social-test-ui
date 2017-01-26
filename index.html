@@ -8,40 +8,51 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body>
+<body ng-app>
     <div class="container-fluid">
-    	<div class="row">
-    		<h2>Social Login Buttons Test UI</h2>
-    	</div>
+        <div class="row">
+            <h2>Social Login Buttons Test UI</h2>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-4">
                     <div class="well">
                         <h3>Facebook Login</h3>
-                        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+                        <div onlogin="checkFbLoginState" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false" data-scope="public_profile,email,user_friends,user_about_me,user_birthday">
+                            
+                        </div>
+                        <br>
+                        <h4>Login Response</h4>
+                        <pre id="fbLoginResponse" style="margin-top:1em">
+                        </pre>
                     </div>
                 </div>
                 <div class="col-md-4">
-                	<div class="well">
-                		<h3>Google Login</h3>
-                		<div class="g-signin2" data-onsuccess="onSignIn"></div>
-                	</div>
-
+                    <div class="well">
+                        <h3>Google Login</h3>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    </div>
                 </div>
                 <div class="col-md-4"></div>
             </div>
         </div>
     </div>
     <div id="fb-root"></div>
-    <script src="config.js"></script>
+    <script src="bower_components/angular.min.js"></script>
+    <script src="app_ui/app.js"></script>
+    <script src="app_ui/config.js"></script>
     <script>
-
+    function checkFbLoginState() {
+        FB.getLoginStatus(function(response) {
+            document.getElementById('fbLoginResponse').innerHTML = JSON.stringify(response,null,2);
+        });
+    }
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId="+config.facebookAppId;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=" + config.facebookAppId;
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
