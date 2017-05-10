@@ -19,7 +19,6 @@
                     <div class="well">
                         <h3>Facebook Login</h3>
                         <div onlogin="checkFbLoginState" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false" data-scope="public_profile,email,user_friends,user_about_me,user_birthday">
-                            
                         </div>
                         <br>
                         <h4>Login Response</h4>
@@ -35,6 +34,17 @@
                 </div>
                 <div class="col-md-4"></div>
             </div>
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <div class="well">
+                        <h3>Google Recaptcha</h3>
+                        <div class="g-recaptcha" data-sitekey="6LffGyAUAAAAAH7EnwotnMB-ZT0oRxBhPDyE9434" data-callback="verifyRecaptcha"></div>
+                        <pre id="captchaResponse" style="margin-top:1em">
+
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
         </div>
     </div>
     <div id="fb-root"></div>
@@ -42,9 +52,12 @@
     <script src="app_ui/app.js"></script>
     <script src="app_ui/config.js"></script>
     <script>
+    function verifyRecaptcha(recaptchaPayload) {
+        document.getElementById('captchaResponse').innerHTML = JSON.stringify(recaptchaPayload);
+    }
     function checkFbLoginState() {
         FB.getLoginStatus(function(response) {
-            document.getElementById('fbLoginResponse').innerHTML = JSON.stringify(response,null,2);
+            document.getElementById('fbLoginResponse').innerHTML = JSON.stringify(response, null, 2);
         });
     }
     (function(d, s, id) {
@@ -57,6 +70,7 @@
     }(document, 'script', 'facebook-jssdk'));
     </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 
 </html>
